@@ -985,7 +985,13 @@ MonoBehaviour:
   dialogues:
   - {fileID: 11400000, guid: d758ee787f696eb4db0f1766e5c3acea, type: 2}
   - {fileID: 11400000, guid: 218219a44af598b4ebbdddf519325694, type: 2}
-  - {fileID: 11400000, guid: 218219a44af598b4ebbdddf519325694, type: 2}
+  - {fileID: 11400000, guid: 07b43a9db6cd8034d89e0d63d602481c, type: 2}
+  - {fileID: 11400000, guid: 14a6332230fc2284aaadcd3660d824b8, type: 2}
+  - {fileID: 11400000, guid: 237d8dbe8b6f12448b85fd6e7d6aaa4a, type: 2}
+  - {fileID: 11400000, guid: ee83e13cebd4bdc40b377297d87e2880, type: 2}
+  - {fileID: 11400000, guid: d9905d86cbf6d3541b72d2665acf5456, type: 2}
+  - {fileID: 11400000, guid: ffbf42f5d19cd614b98895f4cdb03829, type: 2}
+  - {fileID: 11400000, guid: f08b2fc05aed52948ab4cd800737d40e, type: 2}
   scoreContainer: {fileID: 949595475}
   text: {fileID: 835704700}
   choicesBox: {fileID: 907193659}

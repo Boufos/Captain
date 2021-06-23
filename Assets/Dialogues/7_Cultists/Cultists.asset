@@ -9,15 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3198336d95ccb2438897e69c32f3c72, type: 3}
-  m_Name: Create choice
+  m_Script: {fileID: 11500000, guid: 601ca84475576b444aefbb00572fd6bd, type: 3}
+  m_Name: Cultists
   m_EditorClassIdentifier: 
-  label: fasdf
-  lines:
-  - 
-  - 
+  lines: []
   characters: []
-  toHealth: 0
-  toMorale: 0
-  toCondition: 0
-  toFuel: 0
+  choices: []
