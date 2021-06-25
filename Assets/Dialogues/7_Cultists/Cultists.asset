@@ -24,6 +24,7 @@ MonoBehaviour:
     \u043D\u0438\u043C\u0438 \u0434\u0435\u043B\u0430\u0442\u044C?"
   characters:
   - {fileID: 11400000, guid: d3f0fb8279704e74fa1402a2f999095c, type: 2}
+  - {fileID: 11400000, guid: d3f0fb8279704e74fa1402a2f999095c, type: 2}
   choices:
   - {fileID: 11400000, guid: 20cc9ba4dcad9d34e828d1bd049782ba, type: 2}
   - {fileID: 11400000, guid: 9f1f01827ce22e340b26733fab729b30, type: 2}
