@@ -11,6 +11,10 @@ public class Button : MonoBehaviour
     [SerializeField] public Sprite pressedButton;
     private bool activated = false;
     private SpriteRenderer _spriteRenderer;
+    [SerializeField] private char number;
+    [SerializeField] private ButtonPanel buttonPanel;
+    [SerializeField] private PlaySound playSound;
+    public bool closed = false;
     public bool Activated
     {
         get => activated;
@@ -32,13 +36,19 @@ public class Button : MonoBehaviour
     void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        tag = "Button";
     }
 
     private void OnActivate()
     {
-        Debug.Log(1);
-        _spriteRenderer.sprite = pressedButton;
-        onClick?.Invoke();
+        if (!closed)
+        {
+            playSound.PlayButtonSound();
+            _spriteRenderer.sprite = pressedButton;
+            if (Char.IsDigit(number))
+                buttonPanel.AddCode(number);
+            onClick?.Invoke();
+        }
     }
     
     private void OnDeactivate()

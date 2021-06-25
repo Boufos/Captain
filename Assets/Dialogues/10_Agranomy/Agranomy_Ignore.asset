@@ -23,7 +23,7 @@ MonoBehaviour:
     \u0443\u0440\u043E\u0436\u0430\u0439\u043D\u043E\u0441\u0442\u044C!"
   characters:
   - {fileID: 11400000, guid: d3f0fb8279704e74fa1402a2f999095c, type: 2}
-  toHealth: 0
+  toHealth: -25
   toMorale: 0
-  toCondition: 0
+  toCondition: 25
   toFuel: 0

@@ -19,7 +19,7 @@ MonoBehaviour:
     \u0435\u0451 \u0431\u0435\u0437 \u0432\u043D\u0438\u043C\u0430\u043D\u0438\u044F?"
   characters:
   - {fileID: 11400000, guid: d3f0fb8279704e74fa1402a2f999095c, type: 2}
-  toHealth: 0
-  toMorale: 0
-  toCondition: 0
-  toFuel: 0
+  toHealth: -10
+  toMorale: -10
+  toCondition: -10
+  toFuel: -10

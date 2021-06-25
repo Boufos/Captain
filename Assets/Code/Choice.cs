@@ -13,10 +13,15 @@ public class Choice : ScriptableObject
     [SerializeField] private int toMorale;
     [SerializeField] private int toCondition;
     [SerializeField] private int toFuel;
+    [SerializeField] private int ending = 0;
     [NonSerialized] private int currentLineIndex = 0;
-    
-    public string Perform(ScoreContainer scoreContainer, CharacterScreen characterScreen) 
-    { 
+
+    public string Perform(ScoreContainer scoreContainer, CharacterScreen characterScreen)
+    {
+        if (ending == 1)
+            FindObjectOfType<DialogueContainer>().first = true;
+        if (ending == 2)
+            FindObjectOfType<DialogueContainer>().first = false;
         if (lines.Count == currentLineIndex)
             return "+";
         string _line = lines[currentLineIndex];

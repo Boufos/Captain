@@ -31,7 +31,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d3f0fb8279704e74fa1402a2f999095c, type: 2}
   - {fileID: 11400000, guid: d3f0fb8279704e74fa1402a2f999095c, type: 2}
   - {fileID: 11400000, guid: d3f0fb8279704e74fa1402a2f999095c, type: 2}
-  toHealth: 0
-  toMorale: 0
-  toCondition: 0
-  toFuel: 0
+  toHealth: -20
+  toMorale: -20
+  toCondition: 20
+  toFuel: 20

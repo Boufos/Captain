@@ -12,6 +12,10 @@ public class DialogueContainer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private ChoicesBox choicesBox;
     [SerializeField] private CharacterScreen characterScreen;
+    [SerializeField] private GameObject firstEnd;
+    [SerializeField] private GameObject secondEnd;
+    
+    public bool first = true;
     
     private string _line;
     private bool drawing = false;
@@ -26,6 +30,18 @@ public class DialogueContainer : MonoBehaviour
         if (drawing == true)
         {
             return;
+        }
+
+        if (currentDialogueIndex == dialogues.Count) // Концовка
+        {
+            if (first)
+            {
+                firstEnd.SetActive(true);
+            }
+            else
+            {
+                secondEnd.SetActive(true);
+            }
         }
 
         _line = dialogues[currentDialogueIndex].GetLineOrChoice(buttonIndex, scoreContainer, choicesBox, characterScreen);

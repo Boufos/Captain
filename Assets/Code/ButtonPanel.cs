@@ -7,19 +7,32 @@ using UnityEngine.UIElements;
 public class ButtonPanel : MonoBehaviour
 {
     [SerializeField] private Camera virtualCamera;
+    [SerializeField] private SpriteRenderer buttonCap;
+    [SerializeField] private Button redButton;
+    [SerializeField] private Sprite openedCap;
     private Collider2D lastButtonCollider;
     private Collider2D collider2D;
+    private string _code = "";
     
+
+    public string Code
+    {
+        get => _code;
+        set
+        {
+            _code = value;
+            if (_code.Length > 4)
+            {
+                _code = "";
+            }
+        }
+    }
+
     private bool isCollider2DExists => collider2D != null;
     private bool isLastButtonExists => lastButtonCollider != null;
     private bool isButtonNew => lastButtonCollider != collider2D;
     private bool isLastButtonNotInFocus => isLastButtonExists && isButtonNew && lastButtonCollider.CompareTag("Button");
-    void Update() //Если нажал и на кнопку мыши и объект равен кнопке
-                  //- послать активацию и записать в последние активированные
-                  //Если последний активированный собираемся заменить на новый
-                  //то его деактивируем
-                  //если над текущей кнопкой отпускаем кнопку мыши
-                  //посылаем деактивацию
+    void Update() 
     {
         Vector2 mousePos = Input.mousePosition;
         Vector2 worldPos = virtualCamera.ScreenToWorldPoint(mousePos);
@@ -62,4 +75,16 @@ public class ButtonPanel : MonoBehaviour
             }
         }
     }
+
+    public void AddCode(char number)
+    {
+        Code += number;
+        if (Code == "4331")
+        {
+            buttonCap.sprite = openedCap;
+            buttonCap.sortingOrder = 1;
+            redButton.closed = false;
+        }
+    }
 }
+

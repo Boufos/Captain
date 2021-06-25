@@ -15,7 +15,7 @@ TagManager:
   - 
   - 
   - VirtualScreen
-  - 
+  - Gameover
   - 
   - 
   - 
@@ -41,4 +41,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Text
+    uniqueID: 1040140911
+    locked: 0
+  - name: AfterText
+    uniqueID: 46297635
     locked: 0
