@@ -11,6 +11,13 @@ public class ChoicesBox : MonoBehaviour
     [SerializeField] private RectTransform selectorPosition;
     [SerializeField] private RectTransform[] selectorPositions;
     private TextMeshProUGUI _text;
+    public bool avaibleToSelect = true;
+
+    public bool AvaibleToSelect
+    {
+        get => avaibleToSelect;
+        set => avaibleToSelect = value;
+    }
 
     public int SelectedItemIndex
     {
@@ -63,9 +70,12 @@ public class ChoicesBox : MonoBehaviour
 
     public void Select()
     {
-        dialogueContainer.Call(SelectedItemIndex);
-        Draw();
-        SelectedItemIndex = 0;
+        if (avaibleToSelect)
+        {
+            dialogueContainer.Call(SelectedItemIndex);
+            Draw();
+            SelectedItemIndex = 0;
+        }
     }
 }
 

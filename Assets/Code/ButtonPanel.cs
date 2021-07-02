@@ -10,6 +10,14 @@ public class ButtonPanel : MonoBehaviour
     [SerializeField] private SpriteRenderer buttonCap;
     [SerializeField] private Button redButton;
     [SerializeField] private Sprite openedCap;
+    [SerializeField] public bool menuOpened = true;
+
+    public bool MenuOpened
+    {
+        get => menuOpened;
+        set => menuOpened = value;
+    }
+    
     private Collider2D lastButtonCollider;
     private Collider2D collider2D;
     private string _code = "";
@@ -38,39 +46,42 @@ public class ButtonPanel : MonoBehaviour
         Vector2 worldPos = virtualCamera.ScreenToWorldPoint(mousePos);
         collider2D = Physics2D.OverlapPoint(worldPos);
 
-        if (isLastButtonNotInFocus)
+        if (!menuOpened)
         {
-            lastButtonCollider.GetComponent<Button>().Activated = false;
-        }
-
-        if (Input.GetMouseButtonDown(0)) // Нажимаем
-        {
-            if (isCollider2DExists && collider2D.CompareTag("Button"))
+            if (isLastButtonNotInFocus)
             {
-                Button button = collider2D.GetComponent<Button>();
-                button.Activated = true;
-                if (isButtonNew)
+                lastButtonCollider.GetComponent<Button>().Activated = false;
+            }
+
+            if (Input.GetMouseButtonDown(0)) // Нажимаем
+            {
+                if (isCollider2DExists && collider2D.CompareTag("Button"))
                 {
+                    Button button = collider2D.GetComponent<Button>();
+                    button.Activated = true;
+                    if (isButtonNew)
+                    {
+                        if (isLastButtonExists)
+                        {
+                            lastButtonCollider.GetComponent<Button>().Activated = false;
+                        }
+
+                        lastButtonCollider = collider2D;
+                    }
+                    
+                }
+            }
+            else if (Input.GetMouseButtonUp(0)) // Отпускаем
+            {
+                if (isCollider2DExists && collider2D.CompareTag("Button"))
+                {
+                    Button button = collider2D.GetComponent<Button>();
+                    button.Activated = false;
                     if (isLastButtonExists)
                     {
-                        lastButtonCollider.GetComponent<Button>().Activated = false;
+                        button = lastButtonCollider.GetComponent<Button>();
+                        button.Activated = false;
                     }
-
-                    lastButtonCollider = collider2D;
-                }
-                
-            }
-        }
-        else if (Input.GetMouseButtonUp(0)) // Отпускаем
-        {
-            if (isCollider2DExists && collider2D.CompareTag("Button"))
-            {
-                Button button = collider2D.GetComponent<Button>();
-                button.Activated = false;
-                if (isLastButtonExists)
-                {
-                    button = lastButtonCollider.GetComponent<Button>();
-                    button.Activated = false;
                 }
             }
         }

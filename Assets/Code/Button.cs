@@ -15,6 +15,12 @@ public class Button : MonoBehaviour
     [SerializeField] private ButtonPanel buttonPanel;
     [SerializeField] private PlaySound playSound;
     public bool closed = false;
+
+    public bool Closed
+    {
+        get => closed;
+        set => closed = value;
+    }
     public bool Activated
     {
         get => activated;

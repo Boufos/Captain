@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 public class PlaySound : MonoBehaviour
 {
     [SerializeField] private AudioClip[] buttonSounds;
+    [SerializeField] private AudioClip beepSound;
     
     private AudioSource _audioSource;
 
@@ -20,8 +21,14 @@ public class PlaySound : MonoBehaviour
         PlayClip(buttonSounds[Random.Range(0, buttonSounds.Length - 1)]);
     }
 
+    public void PlayBeep()
+    {
+        PlayClip(beepSound);
+    }
+
     private void PlayClip(AudioClip clip)
     {
         _audioSource.PlayOneShot(clip);
     }
+    
 }

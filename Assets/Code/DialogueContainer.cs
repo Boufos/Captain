@@ -14,6 +14,10 @@ public class DialogueContainer : MonoBehaviour
     [SerializeField] private CharacterScreen characterScreen;
     [SerializeField] private GameObject firstEnd;
     [SerializeField] private GameObject secondEnd;
+    [SerializeField] private Button nextDayButton;
+
+    public int day = 0;
+    private int[] eventsCountInDay = new[] {2,6, 10, 15};
     
     public bool first = true;
     
@@ -44,6 +48,15 @@ public class DialogueContainer : MonoBehaviour
             }
         }
 
+        if (currentDialogueIndex == eventsCountInDay[day])
+        {
+            nextDayButton.closed = false;
+            choicesBox.avaibleToSelect = false;
+            StartCoroutine(DrawText($"День {day+1} окончен.\nНажмите на кнопку \"Следующий день\""));
+            currentDialogueIndex++;
+            return;
+        }
+
         _line = dialogues[currentDialogueIndex].GetLineOrChoice(buttonIndex, scoreContainer, choicesBox, characterScreen);
 
         if (_line == "+")
@@ -61,14 +74,17 @@ public class DialogueContainer : MonoBehaviour
         string[] words = line.Split(' ');
         string textToDraw = "";
         string tempText = "";
+        int length = line.Length;
+        int i = 0;
 
         foreach (string word in words)
         {
             foreach (char c in word)
             {
                 yield return new WaitForSeconds(0.02f);
-                tempText += "|";
+                tempText += c;
                 text.text = textToDraw + tempText;
+                i++;
             }
 
             tempText = "";
